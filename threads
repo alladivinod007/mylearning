@@ -1,0 +1,74 @@
+import pyodbc
+from pymongo import MongoClient
+from pymongo import InsertOne, UpdateOne
+from multiprocessing.dummy import Pool as ThreadPool
+
+# Connect to SQL Server
+sql_conn_str = 'DRIVER={SQL Server};SERVER=<server_name>;DATABASE=<database_name>;UID=<username>;PWD=<password>'
+sql_conn = pyodbc.connect(sql_conn_str)
+sql_cursor = sql_conn.cursor()
+
+# Connect to MongoDB
+mongo_conn_str = 'mongodb://<username>:<password>@<mongodb_host>:<mongodb_port>/<database_name>'
+mongo_client = MongoClient(mongo_conn_str)
+db = mongo_client['<database_name>']
+collection = db['polymorphic_dataset']
+
+# Define batch size and number of threads
+batch_size = 1000
+num_threads = 4
+
+# Function to process a batch of records
+def process_batch(records):
+    bulk_operations = []
+    for record in records:
+        accnt_nmbr = record.accnt_nmbr
+        product = {
+            'servername': record.servername,
+            'col1': record.col1,
+            'col2': record.col2
+        }
+
+        # Check if accnt_nmbr already exists in MongoDB collection
+        existing_doc = collection.find_one({'accnt_nmbr': accnt_nmbr})
+
+        if existing_doc:
+            # Add update operation to the bulk operations list
+            bulk_operations.append(
+                UpdateOne(
+                    {'accnt_nmbr': accnt_nmbr},
+                    {'$push': {'product': product}}
+                )
+            )
+        else:
+            # Add insert operation to the bulk operations list
+            bulk_operations.append(
+                InsertOne({
+                    'accnt_nmbr': accnt_nmbr,
+                    'product': [product]
+                })
+            )
+
+    # Perform bulk write operations
+    if bulk_operations:
+        collection.bulk_write(bulk_operations)
+
+
+# Retrieve data from SQL Server
+sql_query = "SELECT accnt_nmbr, servername, col1, col2 FROM <table_name>"
+sql_cursor.execute(sql_query)
+rows = sql_cursor.fetchall()
+
+# Split records into batches
+batches = [rows[i:i+batch_size] for i in range(0, len(rows), batch_size)]
+
+# Create a thread pool and process batches in parallel
+pool = ThreadPool(num_threads)
+pool.map(process_batch, batches)
+pool.close()
+pool.join()
+
+# Close connections
+sql_cursor.close()
+sql_conn.close()
+mongo_client.close()
