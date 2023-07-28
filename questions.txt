@@ -1,0 +1,68 @@
+Data Governance and Management:
+a. What is the bank's data governance framework? How are data policies, standards, and procedures defined, implemented, and enforced?
+
+Data Collection and Input:
+a. What are the sources of data input for the application?
+b. Are there any data validation mechanisms in place during data entry to ensure accuracy and completeness?
+c. How is data ingested and processed before it enters the application's database?
+
+Data Governance and Ownership:
+a. Is there a defined data governance framework for the application?
+b. Who is responsible for data management and quality control within the team?
+c. How is data ownership determined, and what are the responsibilities associated with it?
+
+Data Storage and Architecture:
+a. How is data stored and structured within the application's database?
+b. Are there any redundancies or inconsistencies in data storage, and how are they handled?
+c. Is the data stored in compliance with relevant data privacy and security regulations?
+
+Data Quality Monitoring and Reporting:
+a. What processes and tools are used to monitor data quality regularly?
+b. How are data quality issues identified and reported?
+c. Are there any key performance indicators (KPIs) or metrics to measure data quality?
+
+Data Cleaning and Transformation:
+a. Are there procedures in place to clean and transform data before it is used for analysis or decision-making?
+b. How are data errors, duplicates, and inconsistencies addressed within the application?
+
+Data Access and Security:
+a. How is data access controlled within the application?
+b. What security measures are implemented to protect data integrity and prevent unauthorized access?
+c. Are there audit trails to track data changes and user access?
+
+Data Integration and External Data Sources:
+a. Does the application integrate data from external sources, and if so, how is data quality ensured from these sources?
+b. Are there any specific data quality agreements or SLAs with external data providers?
+
+Data Retention and Deletion:
+a. How is data retention managed within the application?
+b. Are there processes to delete or archive outdated or unnecessary data?
+
+Data Training and Awareness:
+a. Are the application's users and data handlers provided with training on data quality best practices?
+b. Is there a culture of data quality awareness within the application team?
+
+Compliance and Regulations:
+a. How does the application ensure compliance with relevant data protection and privacy regulations?
+b. Are there any industry-specific data quality standards that need to be followed?
+
+Data Quality Improvement Initiatives:
+a. Are there any ongoing initiatives or plans to enhance data quality within the application?
+b. How are data quality improvement projects prioritized and managed?
+
+
+Remember, the specific questions and depth of the audit would vary depending on the bank's size, complexity, and the scope of the data being managed. The aim is to assess the effectiveness of the data quality control measures in place and identify any areas that may need improvement.
+
+
+
+
+
+
+What is your data quality policy? This will give me an overview of the bank's overall approach to data quality.
+What are your data quality metrics? How do you measure the quality of your data?
+What are your data quality procedures? What steps do you take to ensure the quality of your data?
+How do you monitor data quality? How do you identify and fix data quality issues?
+What are your data quality risks? What are the potential risks to the quality of your data?
+How do you mitigate data quality risks? What steps do you take to reduce the likelihood and impact of data quality risks?
+What are your data quality training programs? How do you ensure that your staff is aware of the importance of data quality?
+How do you communicate data quality issues? How do you communicate data quality issues to the rest of the organization?
