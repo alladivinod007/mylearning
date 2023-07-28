@@ -1,0 +1,60 @@
+Data Quality Control:
+a. What processes and methodologies are in place to ensure data quality within the organization?
+b. How do you validate and clean the data to ensure its accuracy and reliability?
+c. Are there any data quality metrics or key performance indicators (KPIs) that you monitor regularly?
+d. How do you handle data errors, duplicates, and inconsistencies when they are identified?
+e. What steps are taken to maintain data integrity throughout its lifecycle?
+f. Is there a data governance framework in place to manage data quality across the organization?
+g. How do you ensure compliance with data quality standards and regulatory requirements?
+h. How often are data quality audits conducted, and how are the findings addressed?
+
+Data Ingestion Services:
+a. What sources of data does the ingestion service support, and how is data ingested from these sources?
+b. How do you handle data from various formats and structures during the ingestion process?
+c. Are there any data validation steps performed during data ingestion?
+d. How do you ensure data security during the data ingestion process?
+e. Is there any mechanism in place to track the status of data ingestion jobs and handle failures?
+f. How scalable is the data ingestion service, and how do you handle high data volumes?
+
+Data Streaming:
+a. What technologies or platforms are used for data streaming within the organization?
+b. How do you handle real-time data streaming and ensure data is delivered in a timely manner?
+c. What are the mechanisms in place to manage data backlogs or delays in the streaming process?
+d. How do you handle data schema changes during the streaming process?
+e. Are there any data validation and transformation steps performed on streaming data?
+f. How do you ensure data security and privacy in a data streaming environment?
+g. What tools or technologies are used to monitor the performance and health of data streams?
+
+Data Replication:
+a. What are the reasons for data replication within the organization?
+b. How is data replication performed, and what technologies are used for replication?
+c. Is there any data consistency mechanism between the source and target systems during replication?
+d. How do you handle data conflicts or discrepancies between replicated data sets?
+e. What is the frequency of data replication, and how do you ensure data is up-to-date?
+f. How do you handle data replication for distributed or multi-site architectures?
+g. What strategies are in place to ensure data integrity during the replication process?
+
+Transformation Service:
+a. What are the common data transformation tasks performed by the service?
+b. How are data transformation rules defined and managed?
+c. What technologies or tools are used for data transformation?
+d. Are there any data validation steps performed after data transformation?
+e. How do you handle complex data transformations and ensure their accuracy?
+f. How scalable is the transformation service, especially for large datasets?
+g. How do you ensure the security and privacy of data during transformation?
+
+Curated Services:
+a. What is the purpose of curated services in your organization's data architecture?
+b. How is data curated, and what criteria are used to select data for curation?
+c. How do you ensure data quality and reliability in curated services?
+d. Are there any data versioning or change management mechanisms for curated data?
+e. What level of metadata and documentation is provided with curated data sets?
+f. How do you handle data access and security for curated data?
+
+Data Provisioning:
+a. How is data provisioned to various users and applications within the organization?
+b. What methods or protocols are used for data provisioning?
+c. How do you ensure data access controls and permissions are managed effectively?
+d. Is there a mechanism to track data usage and monitor data provisioning activities?
+e. How is data latency managed in data provisioning services?
+f. What tools or technologies are used for data delivery and distribution?
