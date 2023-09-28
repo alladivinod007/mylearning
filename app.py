@@ -7,9 +7,8 @@ from pydantic import BaseModel
 
 from auth import authenticate_user
 from circuit_breaker import CircuitBreaker
-from cache import Cache
-from customerorder import customerorder_router
-from customersales import customersales_router
+from queryservice import queryservice_router
+from reservationservice import reservationservice_router
 
 app = FastAPI()
 
@@ -30,8 +29,8 @@ app.add_middleware(
     allowed_hosts=["*"],
 )
 
-app.include_router(customerorder_router, tags=["customerorder"])
-app.include_router(customersales_router, tags=["customersales"])
+app.include_router(queryservice_router, tags=["queryservice"])
+app.include_router(reservationservice_router, tags=["reservationservice"])
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
