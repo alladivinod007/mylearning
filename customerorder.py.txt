@@ -1,0 +1,39 @@
+# customerorder.py
+from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel
+from circuit_breaker import CircuitBreaker
+from cache import Cache
+from customerorder_client import customerorder_client
+
+customerorder_router = APIRouter()
+
+class CustomerOrder(BaseModel):
+    order_id: int
+    customer_id: int
+    total_amount: float
+
+customerorder_cache = Cache("customerorder_cache")
+
+customerorder_circuit_breaker = CircuitBreaker(
+    name="customerorder_circuit_breaker",
+    failure_threshold=5,
+    timeout=10,
+    recovery_timeout=30,
+)
+
+@customerorder_router.get("/customerorders/{customer_id}", response_model=CustomerOrder)
+async def get_customer_order(customer_id: int):
+    current_user = authenticate_user()
+
+    if current_user is None:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+
+    customerorder = await customerorder_cache.get(customer_id)
+
+    if customerorder is None:
+        customerorder = await customerorder_circuit_breaker.call(
+            lambda: customerorder_client.get_customer_order(customer_id)
+        )
+        await customerorder_cache.set(customer_id, customerorder)
+
+    return CustomerOrder(customer_order=customerorder)
